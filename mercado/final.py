@@ -1,4 +1,4 @@
-
+##teste, fazer um programa que simula um mercado.
 produtos = {
     "frutas": {
         "uva": 3,

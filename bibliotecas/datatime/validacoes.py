@@ -1,5 +1,7 @@
 from datetime import datetime,timedelta
 
+##segundo teste, fazer um programa que calcula o numero de dias ate o ano novo. 
+
 def dias_ate_ano_nova():
     
   final_ano = datetime(2025,12,31)
@@ -7,7 +9,9 @@ def dias_ate_ano_nova():
   falta = (final_ano - datetime.now())
 
   print (f'falta {falta.days} dias ate o ano novo')
-  
+
+##terceiro teste, fazer um programa que calcula o numero de dias ate o evento.
+ 
 def  data_evento():
     
     agora = datetime.now()
@@ -32,7 +36,8 @@ def  data_evento():
         
         print(f'falta {falta.days}dia para o evento')        
     
-    
+##quarto teste, fazer um programa que calcula o numero de dias ate o vencimento do produto.
+
 def data_validacao2():
     
     agora = datetime.now().date()
@@ -40,9 +45,6 @@ def data_validacao2():
     data_produto = input('insira a data do seu evento (Formato: 2025/08/19)')
     
     data = datetime.strptime(data_produto, "%Y/%m/%d").date()
-    
-    aleatorio = agora
-    
     
     if data > agora :
         
@@ -58,7 +60,8 @@ def data_validacao2():
         
         print('hoje e a data de vencimento')    
 
-data_validacao2()      
-  
+data_validacao2()
+
+## teste 3 e 4, ambos tem formatos parecidos, só que preferi fazer ambos de duas formas diferentes, utilizando a mesma biblioteca   
     
     

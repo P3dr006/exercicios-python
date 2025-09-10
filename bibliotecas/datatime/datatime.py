@@ -1,7 +1,7 @@
 from datetime import datetime
 
+##primeiro teste, criação de assinatura. 
 agora = (datetime.now())
-
 
 nome = input('insira sua assinatura:')
 

@@ -1,5 +1,7 @@
 from random import randint
 
+##primeiro teste, fazer um programa que gera um numero aleatorio e o usuario tem que adivinhar o numero.
+
 aleatorio = randint(1,10)
 num2 = 0
 num1 = ()

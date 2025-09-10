@@ -1,5 +1,7 @@
 from pathlib import Path
 
+import os
+
 pasta_inicial =  Path('exrcicios')
 
 nova_pasta = pasta_inicial/'arquivos'
