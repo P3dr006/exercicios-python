@@ -1,4 +1,4 @@
-from execicios.calculos.matematica import saudacao,metade,dobro
+from calculos.matematica import saudacao,metade,dobro
 from perfil.usuario import criar_perfil
 from perfil.validacao import validacao
 
