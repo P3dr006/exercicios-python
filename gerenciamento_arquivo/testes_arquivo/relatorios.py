@@ -6,8 +6,6 @@ nova_pasta = pasta_inicial/'dados'
 
 nova_pasta.mkdir(parents=True,exist_ok=True)
 
-
-
 arquivo = nova_pasta/'arquivo.txt'
 arquivo.touch(exist_ok=True)
 if not arquivo.exists():
