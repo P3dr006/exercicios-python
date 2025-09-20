@@ -1,0 +1,11 @@
+Relatório de Vendas - Janeiro 2024
+
+Produto A: 150 unidades vendidas
+Produto B: 200 unidades vendidas
+Produto C: 75 unidades vendidas
+
+Total de vendas: R$ 15.000,00
+Meta atingida: 85%
+
+Data: 31/01/2024
+Responsável: João Silva

@@ -8,14 +8,14 @@ def pastas_imagem():
     pasta_inicial = Path("gerenciamento_arquivo/arquivo_imagem")
     nova_pasta = pasta_inicial / "imagem"
 
-    # cria pasta (incluindo pais se necessário)
+    # cria pasta
     nova_pasta.mkdir(parents=True, exist_ok=True)
 
     # extensões de imagens que queremos mover
     extensoes_imagem = [".png", ".jpg", ".jpeg"]
 
     # percorre todos os arquivos dentro da pasta inicial e subpastas
-    for arquivo in pasta_inicial.rglob("*"):
+    for arquivo in pasta_inicial.rglob("*"):#(mesmo tendo * como chamado utilizei o path na pasta_inicial para ele olhar so na pasta que eu informei)
         if arquivo.is_file() and arquivo.suffix.lower() in extensoes_imagem:
             destino = nova_pasta / arquivo.name
             try:
@@ -31,21 +31,4 @@ def pastas_imagem():
     shutil.copytree(nova_pasta, backup_pasta)
     print(f"Backup criado em: {backup_pasta}")
 
-
-def backup_relatorio():
- relatorio_antigo =Path('relatorio_antigo')
- relatorio_antigo.mkdir(exist_ok=True)
- shutil.move('relatorio.txt' , relatorio_antigo / 'relatorio_backup.txt')
-
-def Automatizando_extração():
-    
- extrair = Path('extraido')
- extrair.mkdir(exist_ok=True)
- 
- shutil.move('arquivos_secretos.zip',extrair )
- 
- shutil.unpack_archive(f'{extrair}/arquivos_secretos.zip',extrair)
-
-pastas_imagem()
- 
 
