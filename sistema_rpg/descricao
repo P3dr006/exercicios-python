@@ -1,0 +1,123 @@
+estetica ficha base
+[x] sistema basico ja feito
+BASICO
+Nome:
+Idade:
+Altura:
+Gênero:
+Peso:
+[x] sistema de atributos ja feito
+ATRIBUTOS
+FORÇA:
+DESTREZA:
+CONSTITUIÇÃO:
+SABEDORIA:
+GENIALIDADE:
+[]
+POTENCIAL:
+ESTILO DE LUTA
+TECNICA;
+TRAÇOS
+Traço:
+STATUS
+VIDA:
+ENERGIA:
+RD:
+
+
+----INFORMAÇOES PARA CRIAÇÃO DE FICHA----
+
+[x] rolagem automatizada e valor de atributo de acordo com valor feito
+CRIAÇÃO DE FICHA
+Rolê 2x 5d6 para compra(Mínimo 13)
+
+Ranks
+
+F-0
+E-1
+D-2
+C-3
+B-4
+A-6
+S-8
+
+Dado de Potencial:1d100 
+
+Gastando: 4 Pontos transforma desvantagem em vantagem 
+
+Gastando: 2 Pontos permite re-rolar.
+
+Escolha entre uma arte marcial ou um traço extra
+[x] tabela potencial ja feito
+TABELA DE POTENCIAL
+Jogue 1d100(Um jogador que tire C- pode gastar 2 pontos de atributos para rerolar)(Um personagem que tire E- pode escolher ter dois traço extras)
+
+10-F
+20-E
+40-D
+55-C
+70-B
+85-A
+100-S
+115-SS
+130-SSS
+
+[] tabela das opcoes a fazer
+- O jogador pode abandonar um traço ou arte marcial inicial para adicionar 1d20(Mínimo 10) como bônus.
+
+- O jogador pode receber uma limitação para adicionar 1d20(Mínimo 10) no seu potencial.
+
+- O jogador pode bloquear seu traço especial durante tempo indeterminado para receber +1d10(Mínimo 5).
+
+[x] ja feito 
+Rolagens
+Aqui apenas foi substituído números por letras, então segue a tabela
+
+F -2
+E 0
+D +1
+C +2
+B +3
+A +4
+S +6
+SS +8
+SSS +10
+SR +13
+SSR +16
+UR +20
+
+[]rolagem de dano
+STATUS E DANO
+O jogador ganha dados de dano e pontos de status baseado em seus atributos 
+Dano
+F 1d4
+E 2d4
+D 3d4
+C 4d4
+B 5d4
+A 7d4
+S 10d4
+SS 13d4
+SSS 16d4
+SR: 20d4
+SSR 25d4
+UR 30d4
+[] rolagem de vida
+Vida e RD
+
+F +4d6 e +2
+E +4d6 e +2
+D +4d6 e +2
+C +4d6 e +1
+B +4d6 e +2
+A +4d6 e +2
+S +6d6 e +5
+SS +6d6 e +5
+SSS +6d6 e +5
+SR +12d6 e +10
+SSR  +12d6 e +10
+UR +24d6 e +20
+
+ENERGIA 
+
+10+Varia do estilo
