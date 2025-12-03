@@ -1,5 +1,7 @@
 import random
 
+atributos_list = {'FORCA':0, 'DES':0, 'CONS':0, 'SAB':0, 'INTE':0}
+
 def info_basicos():
     nome = input('insira seu nome personagem:')
     idade = input('insira sua idade:')
@@ -59,7 +61,7 @@ def atributos():
     continuar =""
     valor = compra_status
 
-    ranks = {
+    tabela_ranks = {
         "F": {"custo": 0, "bonus": -2},
         "E": {"custo": 1, "bonus": 0},
         "D": {"custo": 2, "bonus": 1},
@@ -72,8 +74,8 @@ def atributos():
         "SSR": {"custo": 18, "bonus": 16},
         "UR": {"custo": 25, "bonus": 20}
 }
-    ordem = list(rank.keys())
-    ordem.insert(0, "-")
+    ordem = list(tabela_ranks.keys())
+    ordem.insert(0, 0)
 
     while continuar != '5':
 
@@ -88,71 +90,130 @@ def atributos():
             [5] Encerrar
         ''')
 
+atributos_list = {'FORCA':0, 'DES':0, 'CONS':0, 'SAB':0, 'INTE':0}
+
+def menu_atributos(pontos_iniciais, ficha):
+
+    tabela_ranks = {
+        "F": {"custo": 0, "bonus": -2},
+        "E": {"custo": 1, "bonus": 0},
+        "D": {"custo": 2, "bonus": 1},
+        "C": {"custo": 3, "bonus": 2},
+        "B": {"custo": 4, "bonus": 3},
+        "A": {"custo": 6, "bonus": 4},
+        "S": {"custo": 8, "bonus": 6},
+        "SS": {"custo": 12, "bonus": 8},
+        "SR": {"custo": 15, "bonus": 13},
+        "SSR": {"custo": 18, "bonus": 16},
+        "UR": {"custo": 25, "bonus": 20}
+    }
+    
+    ordem = list(tabela_ranks.keys())
+    ordem.insert(0, 0) 
+
+    valor_atual = pontos_iniciais
+    continuar = ""
+
+    while continuar != '5':
+   
+        continuar = input(f'''
+            Pontos disponíveis: {valor_atual}
+
+            [1] Ver tabela de preços
+            [2] Comprar Atributos
+            [3] Mostrar Status
+            [4] Resetar
+            [5] Encerrar
+            
+            Escolha: ''')
+
         if continuar == '1':
-
             print("\n--- TABELA ---")
-            for k, v in rank.items():
-                print(f"{k} | custo: {v['custo']} | bonus{v['bonus']}")
- 
-        elif continuar == "2":
-            atributo = input("""
-        Qual atributo deseja melhorar?
-        FORCA, DES, CONS, SAB, INTE
-        """).upper()
+            for k, v in tabela_ranks.items():
+                print(f"{k} | Custo: {v['custo']} | Bônus: {v['bonus']}")
 
-            if atributo not in ["FORCA", "DES", "CONS", "SAB", "INTE"]:
+        elif continuar == "2":
+        
+            atributo = input("""
+            Qual atributo deseja melhorar?
+            FORCA, DES, CONS, SAB, INTE
+            """).upper().strip()
+
+            if atributo not in ficha:
                 print("Atributo inválido!")
                 continue
 
-            rank = input("Escolha o rank (F/E/D/C/B/A/S): ").upper()
-
-            atual = eval(atributo.lower())
-            rank_atual = ordem.index(atual)
-            rank_novo = ordem.index(rank)
-
-            if rank_novo <= rank_atual:
-                print("Você já tem esse nível ou melhor!")
+            novo_rank = input("Escolha o rank desejado: ").upper().strip()
+            
+            if novo_rank not in tabela_ranks:
+                print("Rank não existe na tabela!")
                 continue
 
-            custo  = rank[rank][custo]
+            valor_que_tenho_agora = ficha[atributo]
+            
+            indice_atual = ordem.index(valor_que_tenho_agora)
+            indice_novo = ordem.index(novo_rank)
 
-            if valor >= custo:
-                print('pontos insuficientes')
+            if indice_novo <= indice_atual:
+                print("Você já tem esse nível ou um melhor!")
                 continue
 
-            valor -= custo
+            custo_compra = tabela_ranks[novo_rank]['custo']
 
-            if atributo == "FORCA": forca = rank
-            elif atributo == "DES": des = rank
-            elif atributo == "CONS": cons = rank
-            elif atributo == "SAB": sab = rank
-            elif atributo == "INTE": inte = rank
+            if valor_atual < custo_compra:
+                print(f'Pontos insuficientes! Custa {custo_compra}, você tem {valor_atual}.')
+                continue
 
-            print(f"{atributo} agora é {rank} (+{ranks[rank]['bonus']})")
+            valor_atual -= custo_compra
+            ficha[atributo] = novo_rank 
+            
+            print(f"Sucesso! {atributo} definido para {novo_rank}")
 
+        elif continuar == '3':
+            print("\n--- STATUS ATUAIS ---")
+            for k, v in ficha.items():
+                rank_str = "Sem Rank" if v == 0 else v
+     
+                bonus = tabela_ranks[v]['bonus'] if v != 0 else 0
+                print(f"{k}: {rank_str} (Bônus: {bonus})")
 
+        elif continuar == '4':
+            for k in ficha:
+                ficha[k] = 0
+            valor_atual = pontos_iniciais
+            print("Ficha resetada!")
 
-        elif continuar =='3':
-            return  print (f'''            
-            ----ATRIBUTOS----
-            FORÇA:{forca}
-            DESTREZA:{des}
-            CONSTITUIÇÃO:{cons}
-            SABEDORIA:{sab}
-            GENIALIDADE:{inte}
-
-            Valores dos seus atributos
-            ''')
-
-        elif continuar =='4':
-            forca = des = con = sab = inte = 0
-
-            valor = compra_status 
-
-            print('Status resetados')
-    return valor, forca, des, cons, sab, inte        
+    return valor_atual
 
 
+menu_atributos(50, atributos_list)
+
+print("\nFicha Final Salva:", atributos_list)
+def vida(r):
+    vida_rolagem = {
+        "F":  (1, 4),
+        "E":  (2, 4),
+        "D":  (3, 4),
+        "C":  (4, 4),
+        "B":  (5, 4),
+        "A":  (7, 4),
+        "S":  (10, 4),
+        "SS": (13, 4),
+        "SSS": (16, 4),
+        "SR": (20, 4),
+        "SSR": (25, 4),
+        "UR": (30, 4)
+    }
+    dados, faces = vida_rolagem[r]
+
+    rolagem = [random.randint(1,faces) for _ in (dados)]
+
+    total = sum(rolagem)
+
+    print(f'rolagem de vida{r}:{rolagem}')
+    print(f'VIDA TOTAL:{total}')
+
+    return total
 
 def informacoes_ficha():
    info = ''
