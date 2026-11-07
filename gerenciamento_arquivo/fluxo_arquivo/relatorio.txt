@@ -1,0 +1,16 @@
+1 - Aluno: pedro Aprovado
+    Notas: 7 e 8
+    Média: 11.0
+1 - Aluno: tHiago Reprovado
+    Notas: 2 e 4
+    Média: 4.0
+1 - Aluno: yurI Reprovado
+    Notas: 1 e 10
+    Média: 6.0
+1 - Aluno: MigUel Aprovado
+    Notas: 4 e 9
+    Média: 8.5
+1 - Aluno: joao Aprovado
+    Notas: 7 e 9
+    Média: 11.5
+Total de Aprovados: 1

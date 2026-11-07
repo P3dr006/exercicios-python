@@ -1,0 +1,5 @@
+pedro 7 8
+tHiago 2 4
+yurI 1 10
+MigUel 4 9
+joao 7 9
